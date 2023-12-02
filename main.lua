@@ -330,11 +330,16 @@ end
 function love.load()
     love.graphics.setBackgroundColor(255, 255, 255)
 
+    creditos = false
+    resetar = false;
+
     gridXCount = 10
     gridYCount = 18
 
     pieceXCount = 4
     pieceYCount = 4
+    letterYCount = 5
+    letterXCount = 5;
 
     inert = {}
     for y = 1, gridYCount do
@@ -430,28 +435,48 @@ function love.draw()
 
     local offsetX = 2
     local offsetY = 5
-
-    for y = 1, gridYCount do
-        for x = 1, gridXCount do
-            drawBlock(inert[y][x], x + offsetX, y + offsetY)
-        end
-    end
-
-    for y = 1, pieceYCount do
-        for x = 1, pieceXCount do
-            local block = pieceStructures[pieceType][pieceRotation][y][x]
-            if block ~= ' ' then
-                drawBlock(block, x + pieceX + offsetX, y + pieceY + offsetY)
+    if not creditos then
+        for y = 1, gridYCount do
+            for x = 1, gridXCount do
+                drawBlock(inert[y][x], x + offsetX, y + offsetY)
             end
         end
-    end
-    for y = 1, pieceYCount do
-        for x = 1, pieceXCount do
-            local block = pieceStructures[sequence[#sequence]][1][y][x]
-            if block ~= ' ' then
-                drawBlock('preview', x + 5, y + 1)
+
+        for y = 1, pieceYCount do
+            for x = 1, pieceXCount do
+                local block = pieceStructures[pieceType][pieceRotation][y][x]
+                if block ~= ' ' then
+                    drawBlock(block, x + pieceX + offsetX, y + pieceY + offsetY)
+                end
             end
         end
+        for y = 1, pieceYCount do
+            for x = 1, pieceXCount do
+                local block = pieceStructures[sequence[#sequence]][1][y][x]
+                if block ~= ' ' then
+                    drawBlock('preview', x + 5, y + 1)
+                end
+            end
+        end
+    else
+        for y = 1, gridYCount do
+            for x = 1, gridXCount do
+                drawBlock(inert[y][x], x + offsetX, y + offsetY)
+            end
+        end
+        for y = 1, letterYCount do
+            for x = 1, letterXCount do
+                local block = alfabeto.G[y][x]
+                local block2 = alfabeto.A[y][x]
+                if block ~= ' ' then
+                    drawBlock(block, x + offsetX, y + offsetY)
+                end
+                if block2 ~= ' ' then
+                    drawBlock(block2, x + offsetX + 5, y + offsetY)
+                end
+            end
+        end
+        resetar = true;
     end
 end
 
@@ -499,49 +524,62 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
-    timer = timer + dt
-    if timer >= timerLimit then
-        timer = 0
-        local testY = pieceY + 1
-        if canPieceMove(pieceX, testY, pieceRotation) then
-            pieceY = testY
-        else
-            for y = 1, pieceYCount do
-                for x = 1, pieceXCount do
-                    local block =
-                        pieceStructures[pieceType][pieceRotation][y][x]
-                    if block ~= ' ' then
-                        inert[pieceY + y][pieceX + x] = block
-                    end
-                end
-            end
-
-            for y = 1, gridYCount do
-                local complete = true
-                for x = 1, gridXCount do
-                    if inert[y][x] == ' ' then
-                        complete = false
-                        break
-                    end
-                end
-                
-                if complete then
-                    for removeY = y, 2, -1 do
-                        for removeX = 1, gridXCount do
-                            inert[removeY][removeX] =
-                            inert[removeY - 1][removeX]
+    if not creditos then
+        timer = timer + dt
+        if timer >= timerLimit then
+            timer = 0
+            local testY = pieceY + 1
+            if canPieceMove(pieceX, testY, pieceRotation) then
+                pieceY = testY
+            else
+                for y = 1, pieceYCount do
+                    for x = 1, pieceXCount do
+                        local block =
+                            pieceStructures[pieceType][pieceRotation][y][x]
+                        if block ~= ' ' then
+                            inert[pieceY + y][pieceX + x] = block
                         end
                     end
+                end
 
-                    for removeX = 1, gridXCount do
-                        inert[1][removeX] = ' '
+                for y = 1, gridYCount do
+                    local complete = true
+                    for x = 1, gridXCount do
+                        if inert[y][x] == ' ' then
+                            complete = false
+                            break
+                        end
+                    end
+                    
+                    if complete then
+                        for removeY = y, 2, -1 do
+                            for removeX = 1, gridXCount do
+                                inert[removeY][removeX] =
+                                inert[removeY - 1][removeX]
+                            end
+                        end
+
+                        for removeX = 1, gridXCount do
+                            inert[1][removeX] = ' '
+                        end
                     end
                 end
+
+                newPiece()
             end
 
-            newPiece()
-
             if not canPieceMove(pieceX, pieceY, pieceRotation) then
+                inert = {}
+                for y = 1, gridYCount do
+                    inert[y] = {}
+                    for x = 1, gridXCount do
+                        inert[y][x] = ' '
+                    end
+                end
+                creditos = true
+            end
+            if resetar then
+                resetar = false
                 reset()
             end
         end
