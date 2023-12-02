@@ -339,7 +339,8 @@ function love.load()
     pieceXCount = 4
     pieceYCount = 4
     letterYCount = 5
-    letterXCount = 5;
+    letterXCount = 5
+    dy = 0
 
     inert = {}
     for y = 1, gridYCount do
@@ -460,23 +461,53 @@ function love.draw()
         end
     else
         for y = 1, gridYCount do
-            for x = 1, gridXCount do
+            for x = 1, gridXCount + 10 do
                 drawBlock(inert[y][x], x + offsetX, y + offsetY)
             end
         end
         for y = 1, letterYCount do
             for x = 1, letterXCount do
-                local block = alfabeto.G[y][x]
-                local block2 = alfabeto.A[y][x]
-                if block ~= ' ' then
-                    drawBlock(block, x + offsetX, y + offsetY)
+                local block = alfabeto.G[letterYCount + 1 - y][x]
+                local block2 = alfabeto.A[letterYCount + 1 - y][x]
+                local block3 = alfabeto.M[letterYCount + 1 - y][x]
+                local block4 = alfabeto.E[letterYCount + 1 - y][x]
+                if dy <= gridYCount then
+                    if block ~= ' ' then
+                        drawBlock(block, x + offsetX, gridYCount - y - dy )
+                    end
+                    if block2 ~= ' ' then
+                        drawBlock(block2, x + offsetX + 5, gridYCount - y - dy)
+                    end
+                    if block3 ~= ' ' then
+                        drawBlock(block3, x + offsetX + 10, gridYCount - y - dy)
+                    end
+                    if block4 ~= ' ' then
+                        drawBlock(block4, x + offsetX + 15, gridYCount - y - dy)
+                    end
                 end
-                if block2 ~= ' ' then
-                    drawBlock(block2, x + offsetX + 5, y + offsetY)
+                if dy + 5 >= 2 then
+                    local block = alfabeto.O[letterYCount + 1 - y][x]
+                    local block2 = alfabeto.V[letterYCount + 1 - y][x]
+                    local block3 = alfabeto.E[letterYCount + 1 - y][x]
+                    local block4 = alfabeto.R[letterYCount + 1 - y][x]
+                    if block ~= ' ' then
+                        drawBlock(block, x + offsetX, gridYCount - y - dy + 6 )
+                    end
+                    if block2 ~= ' ' then
+                        drawBlock(block2, x + offsetX + 5, gridYCount - y - dy + 6)
+                    end
+                    if block3 ~= ' ' then
+                        drawBlock(block3, x + offsetX + 10, gridYCount - y - dy + 6)
+                    end
+                    if block4 ~= ' ' then
+                        drawBlock(block4, x + offsetX + 15, gridYCount - y - dy + 6)
+                    end
                 end
             end
         end
-        resetar = true;
+        if dy >= gridYCount + 11 then 
+            resetar = true;
+        end
     end
 end
 
@@ -524,6 +555,19 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
+    if creditos then
+        timer = timer + dt
+        if timer >= timerLimit then
+            dy = dy + 1
+            timer = 0
+        end
+    end
+    if resetar then
+        creditos = false
+        resetar = false
+        dy = 0
+        reset()
+    end
     if not creditos then
         timer = timer + dt
         if timer >= timerLimit then
@@ -572,15 +616,12 @@ function love.update(dt)
                 inert = {}
                 for y = 1, gridYCount do
                     inert[y] = {}
-                    for x = 1, gridXCount do
+                    for x = 1, (gridXCount + 10) do
                         inert[y][x] = ' '
                     end
                 end
+                timer = 0
                 creditos = true
-            end
-            if resetar then
-                resetar = false
-                reset()
             end
         end
     end
