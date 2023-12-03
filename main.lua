@@ -436,12 +436,21 @@ function love.draw()
 
     local offsetX = 2
     local offsetY = 5
-    if not creditos then
-        for y = 1, gridYCount do
-            for x = 1, gridXCount do
+    
+    local function drawGrid(extraX, extraY) 
+        -- Se a variável for nil, coloca 0 nela.
+        extraX = extraX or 0
+        extraY = extraY or 0
+
+        for y = 1, gridYCount + extraY do
+            for x = 1, gridXCount + extraX do
                 drawBlock(inert[y][x], x + offsetX, y + offsetY)
             end
         end
+    end
+
+    if not creditos then
+        drawGrid()
 
         for y = 1, pieceYCount do
             for x = 1, pieceXCount do
@@ -460,11 +469,9 @@ function love.draw()
             end
         end
     else
-        for y = 1, gridYCount do
-            for x = 1, gridXCount + 10 do
-                drawBlock(inert[y][x], x + offsetX, y + offsetY)
-            end
-        end
+        -- Adiciona 10 colunas (X + 10)
+        drawGrid(10)
+
         for y = 1, letterYCount do
             for x = 1, letterXCount do
                 local block = alfabeto.G[letterYCount + 1 - y][x]
