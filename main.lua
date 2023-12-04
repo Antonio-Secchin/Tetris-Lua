@@ -407,7 +407,7 @@ function canPieceMove(testX, testY, testRotation)
 end
 
 function love.draw()
-    --Drawing the grid
+    -- Desenha blocos no grid (incluindo os cinzas, que é ele mesmo)
     local function drawBlock(block, x, y)
         local colors = {
             [' '] = {.87, .87, .87},
@@ -462,15 +462,16 @@ function love.draw()
                 for x = 1, letterXCount do
                     
                     local block = letter[y][x]
-                    --[[
-                    --  gridYCount porque queremos que ele comece na parte de baixo do grid.
-                    --  + y porque imprimimos letras usando várias linhas. Então elas não podem estar em uma só.
-                    --  - dy é o que move a letra para cima constantemente.
-                    --]]
+
                     if block ~= ' ' then
                         local offsetX = gridOffsetX + letterOffsetX
                         local offsetY = gridOffsetY + letterOffsetY
 
+                        --[[
+                        --  gridYCount porque queremos que ele comece na parte de baixo do grid.
+                        --  + y porque imprimimos letras usando várias linhas. Então elas não podem estar em uma só.
+                        --  - dy é o que move a letra para cima constantemente.
+                        --]]
                         drawBlock(block, x + offsetX, gridYCount + y - dy + offsetY)
                     end
 
@@ -480,25 +481,39 @@ function love.draw()
 
     end
 
-    if not creditos then
-        drawGrid()
+    -- Para podermos desenhar peças em qualquer lugar da tela. É um pouco de modularização.
+    local function drawPiece (piece, offsetX, offsetY, cor)
+        -- Se a variável for nil, coloca 0 nela.
+        offsetX = offsetX or 0
+        offsetY = offsetY or 0
+
+        -- O usuário inseriu uma cor, mas nossas cores são acessadas via string.
+        if cor and type(cor) ~= 'string' then
+            return false
+        end
 
         for y = 1, pieceYCount do
             for x = 1, pieceXCount do
-                local block = pieceStructures[pieceType][pieceRotation][y][x]
+                local block = piece[y][x]
                 if block ~= ' ' then
-                    drawBlock(block, x + pieceX + gridOffsetX, y + pieceY + gridOffsetY)
+                    -- Se preview for nil/false, retorna block.
+                    drawBlock(cor or block, x + offsetX, y + offsetY)
                 end
             end
         end
-        for y = 1, pieceYCount do
-            for x = 1, pieceXCount do
-                local block = pieceStructures[sequence[#sequence]][1][y][x]
-                if block ~= ' ' then
-                    drawBlock('preview', x + 5, y + 1)
-                end
-            end
-        end
+    end
+
+    if not creditos then
+        drawGrid()
+        
+        -- Desenha o bloco
+        local piece = pieceStructures[pieceType][pieceRotation]
+        drawPiece(piece, pieceX + gridOffsetX, pieceY + gridOffsetY)
+        
+        -- Desenha a preview do próximo bloco 
+        piece = pieceStructures[sequence[#sequence]][1]
+        drawPiece(piece, 5, 1, 'preview')
+
     else
         -- Adiciona 10 colunas (X + 10)
         drawGrid(10)
@@ -520,8 +535,8 @@ function love.draw()
         for i = 1, #letters do
             drawLetter(letters[i], (i-1)*5, 6)
         end
-               
-        if dy >= gridYCount + 11 then 
+
+        if dy >= gridYCount + 11 then
             resetar = true;
         end
 
