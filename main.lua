@@ -131,186 +131,186 @@ pieceStructures = {
 
 alfabeto = {
     A = {
-        {" ", "i", "i", "i", " "},
-        {"i", " ", " ", " ", "i"},
-        {"i", "i", "i", "i", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"}
+        {" ", "j", "j", "j", " "},
+        {"j", " ", " ", " ", "j"},
+        {"j", "j", "j", "j", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"}
     },
     B = {
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", "i", "i", " ", " "}
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", "j", "j", " ", " "}
     },
     C = {
-        {" ", "i", "i", "i", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {" ", "i", "i", "i", " "}
+        {" ", "j", "j", "j", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {" ", "j", "j", "j", " "}
     },
     D = {
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", "i", "i", " ", " "}
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", "j", "j", " ", " "}
     },
     E = {
-        {"i", "i", "i", "i", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", "i", "i", "i", " "}
+        {"j", "j", "j", "j", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", "j", "j", "j", " "}
     },
     F = {
-        {"i", "i", "i", "i", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", " ", " ", " ", " "}
+        {"j", "j", "j", "j", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", " ", " ", " ", " "}
     },
     G = {
-        {" ", "i", "i", "i", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", " ", "i", "i", " "},
-        {"i", " ", " ", "i", " "},
-        {" ", "i", "i", "i", " "}
+        {" ", "j", "j", "j", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", " ", "j", "j", " "},
+        {"j", " ", " ", "j", " "},
+        {" ", "j", "j", "j", " "}
     },
     H = {
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", "i", "i", "i", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"}
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", "j", "j", "j", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"}
     },
     I = {
-        {"i", "i", "i", "i", "i"},
-        {" ", " ", "i", " ", " "},
-        {" ", " ", "i", " ", " "},
-        {" ", " ", "i", " ", " "},
-        {"i", "i", "i", "i", "i"}
+        {"j", "j", "j", "j", "j"},
+        {" ", " ", "j", " ", " "},
+        {" ", " ", "j", " ", " "},
+        {" ", " ", "j", " ", " "},
+        {"j", "j", "j", "j", "j"}
     },
     J = {
-        {" ", " ", "i", "i", "i"},
-        {" ", " ", " ", " ", "i"},
-        {" ", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {" ", "i", "i", "i", " "}
+        {" ", " ", "j", "j", "j"},
+        {" ", " ", " ", " ", "j"},
+        {" ", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {" ", "j", "j", "j", " "}
     },
     K = {
-        {"i", " ", " ", "i", " "},
-        {"i", " ", "i", " ", " "},
-        {"i", "i", " ", " ", " "},
-        {"i", " ", "i", " ", " "},
-        {"i", " ", " ", "i", " "}
+        {"j", " ", " ", "j", " "},
+        {"j", " ", "j", " ", " "},
+        {"j", "j", " ", " ", " "},
+        {"j", " ", "j", " ", " "},
+        {"j", " ", " ", "j", " "}
     },
     L = {
-        {"i", " ", " ", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", "i", "i", "i", " "}
+        {"j", " ", " ", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", "j", "j", "j", " "}
     },
     M = {
-        {"i", " ", " ", " ", "i"},
-        {"i", "i", " ", "i", "i"},
-        {"i", " ", "i", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"}
+        {"j", " ", " ", " ", "j"},
+        {"j", "j", " ", "j", "j"},
+        {"j", " ", "j", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"}
     },
     N = {
-        {"i", " ", " ", " ", "i"},
-        {"i", "i", " ", " ", "i"},
-        {"i", " ", "i", " ", "i"},
-        {"i", " ", " ", "i", "i"},
-        {"i", " ", " ", " ", "i"}
+        {"j", " ", " ", " ", "j"},
+        {"j", "j", " ", " ", "j"},
+        {"j", " ", "j", " ", "j"},
+        {"j", " ", " ", "j", "j"},
+        {"j", " ", " ", " ", "j"}
     },
     O = {
-        {" ", "i", "i", "i", " "},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {" ", "i", "i", "i", " "}
+        {" ", "j", "j", "j", " "},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {" ", "j", "j", "j", " "}
     },
     P = {
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", " ", " "},
-        {"i", " ", " ", " ", " "}
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", " ", " "},
+        {"j", " ", " ", " ", " "}
     },
     Q = {
-        {" ", "i", "i", " ", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", " ", "i", " ", " "},
-        {" ", "i", "i", "i", "i"}
+        {" ", "j", "j", " ", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", " ", "j", " ", " "},
+        {" ", "j", "j", "j", "j"}
     },
     R = {
-        {"i", "i", "i", " ", " "},
-        {"i", " ", " ", "i", " "},
-        {"i", "i", "i", " ", " "},
-        {"i", " ", "i", " ", " "},
-        {"i", " ", " ", "i", " "}
+        {"j", "j", "j", " ", " "},
+        {"j", " ", " ", "j", " "},
+        {"j", "j", "j", " ", " "},
+        {"j", " ", "j", " ", " "},
+        {"j", " ", " ", "j", " "}
     },
     S = {
-        {" ", "i", "i", "i", " "},
-        {"i", " ", " ", " ", " "},
-        {" ", "i", "i", " ", " "},
-        {" ", " ", " ", "i", " "},
-        {"i", "i", "i", " ", " "}
+        {" ", "j", "j", "j", " "},
+        {"j", " ", " ", " ", " "},
+        {" ", "j", "j", " ", " "},
+        {" ", " ", " ", "j", " "},
+        {"j", "j", "j", " ", " "}
     },
     T = {
-        {"i", "i", "i", "i", "i"},
-        {" ", " ", "i", " ", " "},
-        {" ", " ", "i", " ", " "},
-        {" ", " ", "i", " ", " "},
-        {" ", " ", "i", " ", " "}
+        {"j", "j", "j", "j", "j"},
+        {" ", " ", "j", " ", " "},
+        {" ", " ", "j", " ", " "},
+        {" ", " ", "j", " ", " "},
+        {" ", " ", "j", " ", " "}
     },
     U = {
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {" ", "i", "i", "i", " "}
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {" ", "j", "j", "j", " "}
     },
     V = {
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {" ", "i", " ", "i", " "},
-        {" ", " ", "i", " ", " "}
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {" ", "j", " ", "j", " "},
+        {" ", " ", "j", " ", " "}
     },
     W = {
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", " ", " ", "i"},
-        {"i", " ", "i", " ", "i"},
-        {"i", "i", " ", "i", "i"},
-        {"i", " ", " ", " ", "i"}
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", " ", " ", "j"},
+        {"j", " ", "j", " ", "j"},
+        {"j", "j", " ", "j", "j"},
+        {"j", " ", " ", " ", "j"}
     },
     X = {
-        {"i", " ", " ", " ", "i"},
-        {" ", "i", " ", "i", " "},
-        {" ", " ", "i", " ", " "},
-        {" ", "i", " ", "i", " "},
-        {"i", " ", " ", " ", "i"}
+        {"j", " ", " ", " ", "j"},
+        {" ", "j", " ", "j", " "},
+        {" ", " ", "j", " ", " "},
+        {" ", "j", " ", "j", " "},
+        {"j", " ", " ", " ", "j"}
     },
     Y = {
-        {"i", " ", " ", " ", "i"},
-        {" ", "i", " ", "i", " "},
-        {" ", " ", "i", " ", " "},
-        {" ", " ", "i", " ", " "},
-        {" ", " ", "i", " ", " "}
+        {"j", " ", " ", " ", "j"},
+        {" ", "j", " ", "j", " "},
+        {" ", " ", "j", " ", " "},
+        {" ", " ", "j", " ", " "},
+        {" ", " ", "j", " ", " "}
     },
     Z = {
-        {"i", "i", "i", "i", "i"},
-        {" ", " ", " ", "i", " "},
-        {" ", " ", "i", " ", " "},
-        {" ", "i", " ", " ", " "},
-        {"i", "i", "i", "i", "i"}
+        {"j", "j", "j", "j", "j"},
+        {" ", " ", " ", "j", " "},
+        {" ", " ", "j", " ", " "},
+        {" ", "j", " ", " ", " "},
+        {"j", "j", "j", "j", "j"}
     },    
 }
 
@@ -434,8 +434,9 @@ function love.draw()
         )
     end
 
-    local offsetX = 2
-    local offsetY = 5
+    -- Usados para "centralizar" o grid
+    local gridOffsetX = 2
+    local gridOffsetY = 5
     
     local function drawGrid(extraX, extraY) 
         -- Se a variável for nil, coloca 0 nela.
@@ -444,9 +445,39 @@ function love.draw()
 
         for y = 1, gridYCount + extraY do
             for x = 1, gridXCount + extraX do
-                drawBlock(inert[y][x], x + offsetX, y + offsetY)
+                drawBlock(inert[y][x], x + gridOffsetX, y + gridOffsetY)
             end
         end
+    end
+
+    local function drawLetter(letter, letterOffsetX, letterOffsetY)
+        -- Se a variável for nil, coloca 0 nela.
+        letterOffsetX = letterOffsetX or 0
+        letterOffsetY = letterOffsetY or 0
+
+        -- Imprime a letra (letterYCount e letterXCount falam o tamanho da matriz-letra)
+        for y = 1, letterYCount do
+            -- Para não imprimir fora das bordas
+            if (dy - (y + letterOffsetY) >= 0) and (gridYCount + (y + letterOffsetY) - dy > 0) then
+                for x = 1, letterXCount do
+                    
+                    local block = letter[y][x]
+                    --[[
+                    --  gridYCount porque queremos que ele comece na parte de baixo do grid.
+                    --  + y porque imprimimos letras usando várias linhas. Então elas não podem estar em uma só.
+                    --  - dy é o que move a letra para cima constantemente.
+                    --]]
+                    if block ~= ' ' then
+                        local offsetX = gridOffsetX + letterOffsetX
+                        local offsetY = gridOffsetY + letterOffsetY
+
+                        drawBlock(block, x + offsetX, gridYCount + y - dy + offsetY)
+                    end
+
+                end
+            end
+        end
+
     end
 
     if not creditos then
@@ -456,7 +487,7 @@ function love.draw()
             for x = 1, pieceXCount do
                 local block = pieceStructures[pieceType][pieceRotation][y][x]
                 if block ~= ' ' then
-                    drawBlock(block, x + pieceX + offsetX, y + pieceY + offsetY)
+                    drawBlock(block, x + pieceX + gridOffsetX, y + pieceY + gridOffsetY)
                 end
             end
         end
@@ -471,50 +502,29 @@ function love.draw()
     else
         -- Adiciona 10 colunas (X + 10)
         drawGrid(10)
+        
+        local letters ={alfabeto.G,
+                        alfabeto.A,
+                        alfabeto.M,
+                        alfabeto.E}
 
-        for y = 1, letterYCount do
-            for x = 1, letterXCount do
-                local block = alfabeto.G[letterYCount + 1 - y][x]
-                local block2 = alfabeto.A[letterYCount + 1 - y][x]
-                local block3 = alfabeto.M[letterYCount + 1 - y][x]
-                local block4 = alfabeto.E[letterYCount + 1 - y][x]
-                if dy <= gridYCount then
-                    if block ~= ' ' then
-                        drawBlock(block, x + offsetX, gridYCount - y - dy )
-                    end
-                    if block2 ~= ' ' then
-                        drawBlock(block2, x + offsetX + 5, gridYCount - y - dy)
-                    end
-                    if block3 ~= ' ' then
-                        drawBlock(block3, x + offsetX + 10, gridYCount - y - dy)
-                    end
-                    if block4 ~= ' ' then
-                        drawBlock(block4, x + offsetX + 15, gridYCount - y - dy)
-                    end
-                end
-                if dy + 5 >= 2 then
-                    local block = alfabeto.O[letterYCount + 1 - y][x]
-                    local block2 = alfabeto.V[letterYCount + 1 - y][x]
-                    local block3 = alfabeto.E[letterYCount + 1 - y][x]
-                    local block4 = alfabeto.R[letterYCount + 1 - y][x]
-                    if block ~= ' ' then
-                        drawBlock(block, x + offsetX, gridYCount - y - dy + 6 )
-                    end
-                    if block2 ~= ' ' then
-                        drawBlock(block2, x + offsetX + 5, gridYCount - y - dy + 6)
-                    end
-                    if block3 ~= ' ' then
-                        drawBlock(block3, x + offsetX + 10, gridYCount - y - dy + 6)
-                    end
-                    if block4 ~= ' ' then
-                        drawBlock(block4, x + offsetX + 15, gridYCount - y - dy + 6)
-                    end
-                end
-            end
+        for i = 1, #letters do
+            drawLetter(letters[i], (i-1)*5)
         end
+
+        letters = { alfabeto.O,
+                    alfabeto.V,
+                    alfabeto.E,
+                    alfabeto.R}
+
+        for i = 1, #letters do
+            drawLetter(letters[i], (i-1)*5, 6)
+        end
+               
         if dy >= gridYCount + 11 then 
             resetar = true;
         end
+
     end
 end
 
