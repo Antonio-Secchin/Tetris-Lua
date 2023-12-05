@@ -349,6 +349,7 @@ function love.load()
     letterYCount = 5
     letterXCount = 5
 
+    scoreTypes = {100, 300, 500, 800} -- Quantas linhas foram concluídas de uma vez
     score = 0
     dy = 0
 
@@ -652,6 +653,7 @@ function love.update(dt)
                     end
                 end
 
+                local completeAmount = 0
                 -- Checa se alguma linha foi completamente preenchida
                 for y = 1, gridYCount do
                     local complete = true
@@ -676,12 +678,17 @@ function love.update(dt)
                             inert[1][removeX] = ' '
                         end
 
-                        score = score + 100
-                        
-                        drawScore()
+                        -- Conta quantas linhas foram concluídas ao colocar essa peça
+                        completeAmount = completeAmount + 1
                     end
 
                 end
+                
+                if completeAmount > 0 then
+                    score = score + scoreTypes[completeAmount]
+                end
+
+                drawScore()
 
                 newPiece()
             end
