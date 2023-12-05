@@ -513,20 +513,15 @@ function love.draw()
         end
     end
 
-    function drawScore(cor, extraX, extraY)
-        -- Se a variável for nil, coloca {0, 0, 0} nela.
-        cor = cor or {.5, .5, .5}
-
+    function drawScore(extraX, extraY)
         -- Se a variável for nil, coloca 0 nela.
         extraX = extraX or 0
         extraY = extraY or 0
 
+        -- Preferi sem scoreOffsetY
         local scoreOffsetX = gridXCount+1
-        local scoreOffsetY = (gridYCount-1)/2
 
-        -- Ainda estou trabalhando nessa parte
-        --love.graphics.setColor(cor)
-        love.graphics.print(score, (gridOffsetX + scoreOffsetX + extraX) * blockSize, (gridOffsetY + scoreOffsetY + extraY) * blockSize)
+        love.graphics.print(score, (gridOffsetX + scoreOffsetX + extraX) * blockSize, (gridOffsetY + extraY) * blockSize)
     end
 
     if not creditos then
@@ -544,7 +539,7 @@ function love.draw()
     else
         -- Adiciona 10 colunas (X + 10)
         drawGrid(10)
-        drawScore(nil, 10)
+        drawScore(10)
         
         local letters ={alfabeto.G,
                         alfabeto.A,
@@ -638,6 +633,7 @@ function love.update(dt)
             if canPieceMove(pieceX, testY, pieceRotation) then
                 pieceY = testY
             else
+                -- Coloca a peça atual como inerte
                 for y = 1, pieceYCount do
                     for x = 1, pieceXCount do
                         local block =
@@ -673,7 +669,8 @@ function love.update(dt)
                         end
 
                         score = score + 100
-                        drawScore(love.graphics.getColor())
+                        
+                        drawScore()
                     end
 
                 end
