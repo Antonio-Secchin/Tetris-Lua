@@ -606,6 +606,14 @@ function love.keypressed(key)
             pieceY = pieceY + 1
             timer = timerLimit
         end
+    elseif key == 'down' then
+        timerLimit = 0.1
+    end
+end
+
+function love.keyreleased(key)
+    if key == 'down' then
+        timerLimit = 0.5
     end
 end
 
