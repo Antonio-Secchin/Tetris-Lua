@@ -326,20 +326,30 @@ function newSequence()
     end
 end
 
-
 function love.load()
-    love.graphics.setBackgroundColor(255, 255, 255)
+    love.graphics.setBackgroundColor(1, 1, 1)
+
+    font = love.graphics.newFont("Brick Tetris.ttf", 43)
+    love.graphics.setFont(font)
 
     creditos = false
-    resetar = false;
+    resetar = false
 
+    -- Tamanho do grid
     gridXCount = 10
     gridYCount = 18
 
+    blockSize = 20
+
+    -- Tamanho das matrizes de peça
     pieceXCount = 4
     pieceYCount = 4
+
+    -- Tamanho das matrizes de letra
     letterYCount = 5
     letterXCount = 5
+
+    score = 0
     dy = 0
 
     inert = {}
@@ -383,6 +393,7 @@ function love.load()
         newSequence()
         newPiece()
 
+        score = 0
         timer = 0
     end
 
@@ -423,7 +434,6 @@ function love.draw()
         local color = colors[block]
         love.graphics.setColor(color)
 
-        local blockSize = 20
         local blockDrawSize = blockSize - 1
         love.graphics.rectangle(
             'fill',
@@ -503,8 +513,25 @@ function love.draw()
         end
     end
 
+    function drawScore(cor, extraX, extraY)
+        -- Se a variável for nil, coloca {0, 0, 0} nela.
+        cor = cor or {.5, .5, .5}
+
+        -- Se a variável for nil, coloca 0 nela.
+        extraX = extraX or 0
+        extraY = extraY or 0
+
+        local scoreOffsetX = gridXCount+1
+        local scoreOffsetY = (gridYCount-1)/2
+
+        -- Ainda estou trabalhando nessa parte
+        --love.graphics.setColor(cor)
+        love.graphics.print(score, (gridOffsetX + scoreOffsetX + extraX) * blockSize, (gridOffsetY + scoreOffsetY + extraY) * blockSize)
+    end
+
     if not creditos then
         drawGrid()
+        drawScore()
         
         -- Desenha o bloco
         local piece = pieceStructures[pieceType][pieceRotation]
@@ -512,11 +539,12 @@ function love.draw()
         
         -- Desenha a preview do próximo bloco 
         piece = pieceStructures[sequence[#sequence]][1]
-        drawPiece(piece, 5, 1, 'preview')
+        drawPiece(piece, gridOffsetX + 3, gridOffsetY - 4, 'preview')
 
     else
         -- Adiciona 10 colunas (X + 10)
         drawGrid(10)
+        drawScore(nil, 10)
         
         local letters ={alfabeto.G,
                         alfabeto.A,
@@ -589,7 +617,8 @@ end
 function love.update(dt)
     if creditos then
         timer = timer + dt
-        if timer >= timerLimit then
+        -- 0.11 pareceu uma boa velocidade. Melhor que timerLimit para isso, na minha opinião.
+        if timer >= 0.11 then
             dy = dy + 1
             timer = 0
         end
@@ -597,6 +626,7 @@ function love.update(dt)
     if resetar then
         creditos = false
         resetar = false
+        score = 0
         dy = 0
         reset()
     end
@@ -618,6 +648,7 @@ function love.update(dt)
                     end
                 end
 
+                -- Checa se alguma linha foi completamente preenchida
                 for y = 1, gridYCount do
                     local complete = true
                     for x = 1, gridXCount do
@@ -628,6 +659,8 @@ function love.update(dt)
                     end
                     
                     if complete then
+
+                        -- Retira a linha preenchida (e move o resto para baixo)
                         for removeY = y, 2, -1 do
                             for removeX = 1, gridXCount do
                                 inert[removeY][removeX] =
@@ -638,7 +671,11 @@ function love.update(dt)
                         for removeX = 1, gridXCount do
                             inert[1][removeX] = ' '
                         end
+
+                        score = score + 100
+                        drawScore(love.graphics.getColor())
                     end
+
                 end
 
                 newPiece()
