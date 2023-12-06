@@ -397,7 +397,7 @@ function love.load()
 
     function reset()
         sounds.music:play()
-        
+
         inert = {}
         for y = 1, gridYCount do
             inert[y] = {}
@@ -587,6 +587,9 @@ function love.keypressed(key)
         sounds.rotate:stop()
         sounds.rotate:play()
 
+        -- Dá um pouco mais de tempo enquanto o jogador roda a peça
+        timer = timer*0.8
+
         local testRotation = pieceRotation + 1
         if testRotation > #pieceStructures[pieceType] then
             testRotation = 1
@@ -599,6 +602,9 @@ function love.keypressed(key)
     elseif key == 'z' then
         sounds.rotate:stop()
         sounds.rotate:play()
+
+        -- Dá um pouco mais de tempo enquanto o jogador roda a peça
+        timer = timer*0.8
 
         local testRotation = pieceRotation - 1
         if testRotation < 1 then
