@@ -332,6 +332,19 @@ function love.load()
     font = love.graphics.newFont("Brick Tetris.ttf", 43)
     love.graphics.setFont(font)
 
+    sounds = {}
+    sounds.move = love.audio.newSource("sounds/move_click.wav", "static")
+    sounds.rotate = love.audio.newSource("sounds/rotate_click.wav", "static")
+    sounds.down = love.audio.newSource("sounds/down_click.wav", "static")
+    sounds.line = love.audio.newSource("sounds/line.wav", "static")
+    sounds.music = love.audio.newSource("sounds/Eric_Skiff-A_Night_Of_Dizzy_Spells.mp3", "stream")
+    
+    sounds.line:setVolume(0.9)
+    sounds.music:setVolume(0.2)
+
+    sounds.music:setLooping(true)
+    sounds.music:play()
+
     creditos = false
     resetar = false
 
@@ -383,6 +396,8 @@ function love.load()
     end
 
     function reset()
+        sounds.music:play()
+        
         inert = {}
         for y = 1, gridYCount do
             inert[y] = {}
@@ -569,6 +584,9 @@ end
 
 function love.keypressed(key)
     if key == 'x' then
+        sounds.rotate:stop()
+        sounds.rotate:play()
+
         local testRotation = pieceRotation + 1
         if testRotation > #pieceStructures[pieceType] then
             testRotation = 1
@@ -579,6 +597,9 @@ function love.keypressed(key)
         end
 
     elseif key == 'z' then
+        sounds.rotate:stop()
+        sounds.rotate:play()
+
         local testRotation = pieceRotation - 1
         if testRotation < 1 then
             testRotation = #pieceStructures[pieceType]
@@ -589,6 +610,9 @@ function love.keypressed(key)
         end
 
     elseif key == 'left' then
+        sounds.move:stop()
+        sounds.move:play()
+        
         local testX = pieceX - 1
 
         if canPieceMove(testX, pieceY, pieceRotation) then
@@ -596,6 +620,9 @@ function love.keypressed(key)
         end
 
     elseif key == 'right' then
+        sounds.move:stop()
+        sounds.move:play()
+        
         local testX = pieceX + 1
 
         if canPieceMove(testX, pieceY, pieceRotation) then
@@ -603,6 +630,9 @@ function love.keypressed(key)
         end
 
     elseif key == 'c' then
+        sounds.down:stop()
+        sounds.down:play()
+        
         while canPieceMove(pieceX, pieceY + 1, pieceRotation) do
             pieceY = pieceY + 1
             timer = timerLimit
@@ -620,6 +650,8 @@ end
 
 function love.update(dt)
     if creditos then
+        sounds.music:stop()
+
         timer = timer + dt
         -- 0.11 pareceu uma boa velocidade. Melhor que timerLimit para isso, na minha opinião.
         if timer >= 0.11 then
@@ -686,6 +718,8 @@ function love.update(dt)
                 
                 if completeAmount > 0 then
                     score = score + scoreTypes[completeAmount]
+                    sounds.line:stop()
+                    sounds.line:play()
                 end
 
                 drawScore()
